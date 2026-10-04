@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071b38">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <title>Campus Referral Console — NxtWave Growth Challenge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#dashboard" aria-label="Campus Referral Console home"><span class="brand-mark">N</span><span>campus<span class="brand-dot">.</span></span></a>
+      <p class="workspace-label">NXTWAVE WORKSHOP</p>
+      <nav aria-label="Application navigation">
+        <a class="nav-link active" href="#dashboard" data-view="dashboard"><span>▦</span> Overview</a>
+        <a class="nav-link" href="#connectors" data-view="connectors"><span>↗</span> Connectors</a>
+        <a class="nav-link" href="#registrations" data-view="registrations"><span>◎</span> Registrations</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sandbox-card"><span class="pulse"></span><div><b>Sandbox mode</b><small>Synthetic data only</small></div></div>
+        <button class="text-button" id="reset-data">Reset demo data</button>
+      </div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <div><p class="eyebrow">CAMPAIGN CONTROL ROOM</p><h1 id="page-title">Overview</h1></div>
+        <button class="primary-button" id="new-connector">+ Add connector</button>
+      </header>
+
+      <section class="view active" id="dashboard-view">
+        <div class="hero-card">
+          <div><p class="hero-label"><span class="live-dot"></span> 7-DAY REGISTRATION SPRINT</p><h2>Build your first AI project<br>in 60 minutes.</h2><p>Run a focused campus referral program and measure the registrations that actually count.</p></div>
+          <div class="hero-progress"><div class="progress-number"><strong id="unique-total">328</strong><span>/ 500<br>unique</span></div><div class="progress-track"><span id="progress-bar"></span></div><p id="progress-copy">172 registrations to go</p></div>
+        </div>
+        <div class="metrics-grid">
+          <article class="metric-card"><p>UNIQUE REGISTRATIONS</p><strong id="metric-unique">328</strong><span class="positive">↑ 54 this week</span></article>
+          <article class="metric-card"><p>GROSS SIGN-UPS</p><strong id="metric-gross">361</strong><span>33 filtered for quality</span></article>
+          <article class="metric-card"><p>ACTIVE CONNECTORS</p><strong id="metric-active">18 / 20</strong><span>2 need a first share</span></article>
+          <article class="metric-card"><p>QUALITY RATE</p><strong id="metric-quality">90.9%</strong><span>Unique ÷ gross</span></article>
+        </div>
+        <div class="content-grid">
+          <section class="panel funnel-panel"><div class="panel-heading"><div><p class="eyebrow">REGISTRATION PACE</p><h2>Target trajectory</h2></div><span class="legend"><i></i> Unique registrations</span></div><div class="chart" id="chart" aria-label="Daily unique registrations chart"></div><div class="chart-labels"><span>Day 1</span><span>Day 2</span><span>Day 3</span><span>Day 4</span><span>Day 5</span><span>Day 6</span><span>Day 7</span></div></section>
+          <section class="panel source-panel"><div class="panel-heading"><div><p class="eyebrow">ATTRIBUTION</p><h2>Where students came from</h2></div></div><div class="source-list" id="source-list"></div><button class="secondary-button" data-view-target="registrations">View registrations →</button></section>
+        </div>
+        <section class="panel action-panel"><div><p class="eyebrow">TODAY'S PRIORITY</p><h2>Activate the last 2 connectors</h2><p>They have a referral kit but have not generated a registration yet.</p></div><button class="secondary-button" data-view-target="connectors">Open connector list →</button></section>
+      </section>
+
+      <section class="view" id="connectors-view">
+        <div class="section-intro"><div><p class="eyebrow">DISTRIBUTION</p><h2>Campus connectors</h2><p>Each connector owns one clear college, branch, or class audience.</p></div><button class="primary-button" id="new-connector-2">+ Add connector</button></div>
+        <section class="panel table-panel"><div class="table-wrap"><table><thead><tr><th>CONNECTOR</th><th>CHANNEL</th><th>CODE</th><th>UNIQUE</th><th>STATUS</th><th></th></tr></thead><tbody id="connectors-body"></tbody></table></div></section>
+      </section>
+
+      <section class="view" id="registrations-view">
+        <div class="section-intro"><div><p class="eyebrow">QUALITY CONTROL</p><h2>Registration ledger</h2><p>Every record is checked for source, eligibility and duplication.</p></div><button class="primary-button" id="open-student-form">+ Demo student registration</button></div>
+        <section class="panel table-panel"><div class="table-wrap"><table><thead><tr><th>STUDENT</th><th>COLLEGE / BRANCH</th><th>SOURCE</th><th>STATUS</th><th>TIME</th></tr></thead><tbody id="registrations-body"></tbody></table></div></section>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="connector-modal" class="modal"><form method="dialog" id="connector-form"><button class="close" value="cancel" aria-label="Close">×</button><p class="eyebrow">NEW DISTRIBUTION PARTNER</p><h2>Create a connector kit</h2><p class="modal-copy">The code keeps this connector's sign-ups attributable.</p><label>Name<input required name="name" placeholder="e.g. Priya Sharma"></label><label>Audience<input required name="audience" placeholder="e.g. VIT CSE, final year"></label><label>Channel<select name="channel"><option>Student ambassador</option><option>Technical club</option><option>Placement community</option></select></label><button class="primary-button wide" value="default">Create connector kit</button></form></dialog>
+
+  <dialog id="kit-modal" class="modal kit-modal"><form method="dialog"><button class="close" value="cancel" aria-label="Close">×</button><p class="eyebrow">CONNECTOR KIT</p><h2 id="kit-name">Priya's referral kit</h2><div class="code-lockup"><span>REFERRAL CODE</span><strong id="kit-code">PRIYA-VIT</strong></div><label>Your tracked registration link<div class="copy-field"><input id="kit-link" readonly><button type="button" data-copy="kit-link">Copy</button></div></label><label>Ready-to-send WhatsApp message<textarea id="kit-message" rows="5" readonly></textarea></label><button class="secondary-button wide" type="button" id="open-kit-registration">Preview student experience →</button></form></dialog>
+
+  <dialog id="student-modal" class="modal student-modal"><form method="dialog" id="student-form"><button class="close" value="cancel" aria-label="Close">×</button><p class="eyebrow">STUDENT REGISTRATION</p><h2>Build your first AI project.</h2><p class="modal-copy">Free 60-minute online workshop for final-year engineering students.</p><div class="source-chip">Referred by <b id="form-referrer">Campus connector</b></div><div class="two-col"><label>Full name<input required name="studentName" placeholder="Your name"></label><label>Graduation year<select required name="year"><option value="">Select</option><option>2026</option><option>2027</option><option>2028</option></select></label></div><div class="two-col"><label>College<input required name="college" placeholder="College name"></label><label>Branch<input required name="branch" placeholder="e.g. CSE"></label></div><label>Email<input required type="email" name="email" placeholder="name@example.com"></label><label class="consent"><input required type="checkbox"> <span>I agree to receive workshop updates for this prototype.</span></label><button class="primary-button wide" value="default">Reserve my free seat</button><p class="form-note">Prototype only. No real student information is sent anywhere.</p></form></dialog>
+
+  <dialog id="result-modal" class="result-modal"><form method="dialog"><div id="result-icon">✓</div><p class="eyebrow" id="result-eyebrow">REGISTRATION RECORDED</p><h2 id="result-title">You are on the list.</h2><p id="result-copy"></p><button class="primary-button wide" value="default">Continue</button></form></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
