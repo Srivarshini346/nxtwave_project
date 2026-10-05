@@ -45,10 +45,10 @@
           <article class="metric-card"><p>QUALITY RATE</p><strong id="metric-quality">90.9%</strong><span>Unique ÷ gross</span></article>
         </div>
         <div class="content-grid">
-          <section class="panel funnel-panel"><div class="panel-heading"><div><p class="eyebrow">REGISTRATION PACE</p><h2>Target trajectory</h2></div><span class="legend"><i></i> Unique registrations</span></div><div class="chart" id="chart" aria-label="Daily unique registrations chart"></div><div class="chart-labels"><span>Day 1</span><span>Day 2</span><span>Day 3</span><span>Day 4</span><span>Day 5</span><span>Day 6</span><span>Day 7</span></div></section>
+          <section class="panel funnel-panel"><div class="panel-heading"><div><p class="eyebrow">REGISTRATION PACE</p><h2>Target trajectory</h2></div><span class="legend"><i></i> Unique registrations</span></div><div class="chart" id="chart" role="img" aria-label="Cumulative unique registrations by campaign day"></div><div class="chart-labels"><span>Day 1</span><span>Day 2</span><span>Day 3</span><span>Day 4</span><span>Day 5</span><span>Day 6</span><span>Day 7</span></div></section>
           <section class="panel source-panel"><div class="panel-heading"><div><p class="eyebrow">ATTRIBUTION</p><h2>Where students came from</h2></div></div><div class="source-list" id="source-list"></div><button class="secondary-button" data-view-target="registrations">View registrations →</button></section>
         </div>
-        <section class="panel action-panel"><div><p class="eyebrow">NEXT ACTION IN THIS SIMULATION</p><h2 id="action-title">Activate the remaining connectors</h2><p>Give each connector a tracked kit and help them share with a distinct eligible audience.</p></div><button class="secondary-button" data-view-target="connectors">Open connector list →</button></section>
+        <section class="panel action-panel"><div><p class="eyebrow">NEXT ACTION IN THIS SIMULATION</p><h2 id="action-title">Activate the remaining connectors</h2><p id="action-copy">Give each connector a tracked kit and help them share with a distinct eligible audience.</p></div><button class="secondary-button" id="action-button">Open connector list →</button></section>
       </section>
 
       <section class="view" id="connectors-view">
@@ -57,7 +57,7 @@
       </section>
 
       <section class="view" id="registrations-view">
-        <div class="section-intro"><div><p class="eyebrow">QUALITY CONTROL</p><h2>Registration ledger</h2><p>Every record is checked for source, eligibility and duplication.</p></div><button class="primary-button" id="open-student-form">+ Demo student registration</button></div>
+        <div class="section-intro"><div><p class="eyebrow">QUALITY CONTROL</p><h2>Registration ledger</h2><p>Every record is checked for source, eligibility and duplication. Email variants such as dots and +tags count as the same student.</p></div><button class="primary-button" id="open-student-form">+ Demo student registration</button></div>
         <section class="panel table-panel"><div class="table-wrap"><table><thead><tr><th>STUDENT</th><th>COLLEGE / BRANCH</th><th>SOURCE</th><th>STATUS</th><th>TIME</th></tr></thead><tbody id="registrations-body"></tbody></table></div></section>
       </section>
     </main>

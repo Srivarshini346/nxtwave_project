@@ -21,5 +21,7 @@ Open `http://localhost:4173`. The prototype persists demo actions in browser sto
 3. Register `Demo Student` using `demo.student@example.com` and graduation year `2027`.
 4. Return to **Overview** and show that the unique registration and connector total increased.
 5. Submit again with the same email to show the duplicate protection. The gross number rises, but the unique total does not.
+6. Try `demostudent+2@example.com`. The console treats dots and +tags as the same inbox, so this is also caught as a duplicate.
+7. Back on **Overview**, the next-action panel names the connector who has a code but no verified sign-ups yet, and opens their kit directly.
 
 All records are synthetic and are held only in the visitor's browser. The demo accepts `@example.com` addresses only. This is a simulation; it must be connected to NxtWave's approved registration system before it can process real registrations. In the October 2026 scenario, a 2027 graduation year is the eligible final-year cohort.
